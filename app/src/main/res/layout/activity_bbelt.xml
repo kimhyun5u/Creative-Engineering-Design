@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BBeltActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blue Belt"
+            android:textSize="40dp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableRow>
+                <CheckBox
+                    android:id="@+id/call"
+                    android:layout_width="50dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="60dp"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"
+                    android:text="활동"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="자세히"
+                    android:layout_marginRight="20dp"/>
+            </TableRow>
+        </TableLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2">
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c0"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t0"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c1"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:id="@+id/t1"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    android:text=""/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c2"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t2"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c3"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t3"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c4"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t4"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c5"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t5"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c6"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t6"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c7"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t7"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/c8"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/t8"
+                        android:layout_width="245dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=""
+                        android:textSize="10dp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="설정초기화"/>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
