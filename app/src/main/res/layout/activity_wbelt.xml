@@ -186,6 +186,11 @@
             </TableLayout>
         </ScrollView>
         <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="저장"/>
+        <Button
             android:id="@+id/b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

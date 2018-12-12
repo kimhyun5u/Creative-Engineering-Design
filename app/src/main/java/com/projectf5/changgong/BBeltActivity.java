@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,12 +17,16 @@ public class BBeltActivity extends AppCompatActivity {
     private CheckBox[] c;
     private TextView[] t;
     private Button b;
+    private Button save;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bbelt);
         SharedPreferences Student = getSharedPreferences("STUDENT", MODE_PRIVATE);
+        SharedPreferences check = getSharedPreferences("CHECK", MODE_PRIVATE);
         final SharedPreferences.Editor editor = Student.edit();
+        SharedPreferences.Editor editor1 = check.edit();
 
         c = new CheckBox[9];
         t = new TextView[9];
@@ -49,6 +54,9 @@ public class BBeltActivity extends AppCompatActivity {
         t[8] = findViewById(R.id.t8);
 
         b = findViewById(R.id.b);
+        save = findViewById(R.id.save);
+
+        load();
 
         call.setOnClickListener(new CheckBox.OnClickListener(){
             @Override
@@ -86,10 +94,36 @@ public class BBeltActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 editor.clear().commit();
+                editor.clear().commit();
                 Intent intent = new Intent(getApplicationContext(),InformationActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                save();
+                Toast.makeText(getApplicationContext(),"저장되었습니다.",Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+
+    public void save(){
+        SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
+        SharedPreferences.Editor editor1 = check.edit();
+        for(int i = 0; i < 8; i++) {
+            editor1.putBoolean("check"+i, c[i].isChecked()).commit();
+        }
+    }
+
+    public void load() {
+        SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
+        for(int i = 0; i < 8; i++) {
+            c[i].setChecked(check.getBoolean("check"+i,false));
+        }
     }
 }
