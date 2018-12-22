@@ -55,7 +55,7 @@ public class RBeltActivity extends AppCompatActivity {
         call.setOnClickListener(new CheckBox.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(call.isChecked() == true) {
+                if(call.isChecked()) {
                     for(int i = 0; i < 6; i++) {
                         c[i].setChecked(true);
                     }
@@ -84,8 +84,8 @@ public class RBeltActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                editor.clear().commit();
-                editor1.clear().commit();
+                editor.clear().apply();
+                editor1.clear().apply();
                 Intent intent = new Intent(getApplicationContext(),InformationActivity.class);
                 startActivity(intent);
                 finish();
@@ -105,14 +105,14 @@ public class RBeltActivity extends AppCompatActivity {
     public void save(){
         SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
         SharedPreferences.Editor editor1 = check.edit();
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 6; i++) {
             editor1.putBoolean("check"+i, c[i].isChecked()).commit();
         }
     }
 
     public void load() {
         SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 6; i++) {
             c[i].setChecked(check.getBoolean("check"+i,false));
         }
     }

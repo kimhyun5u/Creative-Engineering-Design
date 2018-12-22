@@ -15,9 +15,7 @@ import java.util.ArrayList;
 public class YBeltActivtiy extends AppCompatActivity {
     private CheckBox call;
     private CheckBox[] c;
-    private TextView[] t;
-    private Button b;
-    private Button save;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +26,7 @@ public class YBeltActivtiy extends AppCompatActivity {
         final SharedPreferences.Editor editor = Student.edit();
 
         c = new CheckBox[8];
-        t = new TextView[8];
+        TextView[] t = new TextView[8];
 
         call = findViewById(R.id.call);
 
@@ -50,14 +48,14 @@ public class YBeltActivtiy extends AppCompatActivity {
         t[6] = findViewById(R.id.t6);
         t[7] = findViewById(R.id.t7);
 
-        b = findViewById(R.id.b);
+        Button b = findViewById(R.id.b);
 
-        save = findViewById(R.id.save);
+        Button save = findViewById(R.id.save);
 
         call.setOnClickListener(new CheckBox.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(call.isChecked() == true) {
+                if(call.isChecked()) {
                     for(int i = 0; i < 8; i++) {
                         c[i].setChecked(true);
                     }
@@ -90,8 +88,8 @@ public class YBeltActivtiy extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                editor.clear().commit();
-                editor1.clear().commit();
+                editor.clear().apply();
+                editor1.clear().apply();
                 Intent intent = new Intent(getApplicationContext(),InformationActivity.class);
                 startActivity(intent);
                 finish();
@@ -113,7 +111,7 @@ public class YBeltActivtiy extends AppCompatActivity {
         SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
         SharedPreferences.Editor editor1 = check.edit();
         for(int i = 0; i < 8; i++) {
-            editor1.putBoolean("check"+i, c[i].isChecked()).commit();
+            editor1.putBoolean("check"+i, c[i].isChecked()).apply();
         }
     }
 

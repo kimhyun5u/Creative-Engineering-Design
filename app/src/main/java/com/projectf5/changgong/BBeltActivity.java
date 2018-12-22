@@ -115,14 +115,14 @@ public class BBeltActivity extends AppCompatActivity {
     public void save(){
         SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
         SharedPreferences.Editor editor1 = check.edit();
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 9; i++) {
             editor1.putBoolean("check"+i, c[i].isChecked()).commit();
         }
     }
 
     public void load() {
         SharedPreferences check = getSharedPreferences("CHECK",MODE_PRIVATE);
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 9; i++) {
             c[i].setChecked(check.getBoolean("check"+i,false));
         }
     }
