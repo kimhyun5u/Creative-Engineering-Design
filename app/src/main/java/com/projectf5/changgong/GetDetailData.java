@@ -13,22 +13,24 @@ import java.util.ArrayList;
 public class GetDetailData extends AsyncTask<Void, Void, Void> {
     private ArrayList<ItemObject> list = new ArrayList();
     private ProgressDialog progressDialog;
+    private String url;
+    private String title;
     private String address;
+    private String date;
 
-    GetDetailData(String address) {
-        this.address = address;
+    public GetDetailData(String address) {
+        this.url = address;
     }
 
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            Document doc = Jsoup.connect(address).get();
+            Document doc = Jsoup.connect(url).get();
             Elements mElementDataSize = doc.select( "" );
 
-            String title = mElementDataSize.select( "" ).text();
-            String address = mElementDataSize.select( "" ).text();
-            String date = mElementDataSize.select( "" ).text();
-            list.add( new ItemObject( title,address,date ) );
+            title = mElementDataSize.select( "" ).text();
+            address = mElementDataSize.select( "" ).text();
+            date = mElementDataSize.select( "" ).text();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,4 +51,15 @@ public class GetDetailData extends AsyncTask<Void, Void, Void> {
 //        progressDialog.show();
 //    }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

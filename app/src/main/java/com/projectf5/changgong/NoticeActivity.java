@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -42,6 +43,8 @@ public  class NoticeActivity extends AppCompatActivity {
             }
         });
 
+        GetDetailData getDetailData = null;
+
         if(code == 0) {
             tv_title.setText("경력활동계획서");
             tv_address.setText( "" );
@@ -62,10 +65,12 @@ public  class NoticeActivity extends AppCompatActivity {
         }
 
        else if(code == 2) { //진로캠프
-//            new GetDetailData( "" ).execute();
-//            tv_address.setText( mList.get(0).getAddress());
-//            tv_content.setText( mList.get( 0 ).getDate() );
-//            tv_date.setText(mList.get( 0 ).getDate());
+            new GetDetailData( "http://www.jbnu.ac.kr/kor/?menuID=139&subject=%EC%A7%84%EB%A1%9C%EC%BA%A0%ED%94%84&sfv=subject" ).execute();
+            tv_title.setText( getDetailData.getTitle() );
+            tv_address.setText(getDetailData.getAddress());
+            tv_content.setText("프로그램 개설 시 개별신청(홈페이지 등을 통해 사전공지함)\n" +
+                    "프로그램 종료 후 수료자에 한하여 취업지원과/창업교육센터에서 일괄 포인트 입력"  );
+            tv_date.setText(getDetailData.getDate());
         }
 
         else if(code == 3) {
