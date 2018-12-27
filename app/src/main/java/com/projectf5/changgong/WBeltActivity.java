@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class WbeltActivity extends AppCompatActivity {
+public class WBeltActivity extends AppCompatActivity {
     private CheckBox call;
     private CheckBox[] c;
     private TextView[] t;

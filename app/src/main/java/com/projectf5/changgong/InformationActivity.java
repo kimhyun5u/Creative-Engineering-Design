@@ -5,26 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 
 public class InformationActivity extends AppCompatActivity {
     private Button btsave;
     private Button btcancel;
-//    private RadioButton rbgd1;
-//    private RadioButton rbgd2;
-//    private RadioButton rbgd3;
-//    private RadioButton rbgd4;
-//    private RadioButton rbbtn;
-//    private RadioButton rbbtwt;
-//    private RadioButton rbbtyl;
-//    private RadioButton rbbtbl;
-//    private RadioButton rbbtrd;
     private RadioGroup rggd;
     private RadioGroup rgbt;
     @Override
@@ -37,16 +23,7 @@ public class InformationActivity extends AppCompatActivity {
 
         btsave = findViewById(R.id.bt_save);
         btcancel = findViewById(R.id.bt_cancel);
-//        rbgd1 = findViewById(R.id.rb_gd_1);
-//        rbgd2 = findViewById(R.id.rb_gd_2);
-//        rbgd3 = findViewById(R.id.rb_gd_3);
-//        rbgd4 = findViewById(R.id.rb_gd_4);
-//
-//        rbbtn = findViewById(R.id.rb_bt_n);
-//        rbbtwt = findViewById(R.id.rb_bt_wt);
-//        rbbtyl = findViewById(R.id.rb_bt_yl);
-//        rbbtbl = findViewById(R.id.rb_bt_bl);
-//        rbbtrd = findViewById(R.id.rb_bt_rd);
+
         rggd = findViewById(R.id.rggd);
         rgbt = findViewById(R.id.rgbt);
 
@@ -55,8 +32,6 @@ public class InformationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int idbt = rgbt.getCheckedRadioButtonId();
                 int idgd = rggd.getCheckedRadioButtonId();
-                RadioButton rbbt = findViewById(idbt);
-                RadioButton rbgd = findViewById(idgd);
                 save(idbt,idgd);
                 load();
             }
@@ -81,7 +56,6 @@ public class InformationActivity extends AppCompatActivity {
     public void load() {
         SharedPreferences student = getSharedPreferences("STUDENT",MODE_PRIVATE);
         int belt = student.getInt("belt",0);
-        int grade = student.getInt("grade",0);
         if(belt == R.id.rb_bt_n) {
             Intent intent = new Intent(getApplicationContext(), NBeltActivity.class);
             startActivity(intent);
@@ -89,7 +63,7 @@ public class InformationActivity extends AppCompatActivity {
         }
 
         else if(belt == R.id.rb_bt_wt) {
-            Intent intent = new Intent(getApplicationContext(), WbeltActivity.class);
+            Intent intent = new Intent(getApplicationContext(), WBeltActivity.class);
             startActivity(intent);
             finish();
         }

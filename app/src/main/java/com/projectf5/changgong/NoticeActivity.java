@@ -4,31 +4,31 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public  class NoticeActivity extends AppCompatActivity {
 
+    private String title;
+    private String date;
+    private String address;
 //    private ArrayList<ItemObject> mList;
     private int code;
 
 //    public NoticeActivity(ArrayList<ItemObject> list) {
 //        this.mList = list;
 //    }
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "StaticFieldLeak"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
 
-        TextView tv_title = findViewById(R.id.tv_title);
-        TextView tv_address = findViewById(R.id.tv_address);
-        TextView tv_date = findViewById(R.id.tv_date);
+        final TextView tv_title = findViewById(R.id.tv_title);
+        final TextView tv_address = findViewById(R.id.tv_address);
+        final TextView tv_date = findViewById(R.id.tv_date);
         TextView tv_content = findViewById(R.id.tv_content);
 
         Button bt_back = findViewById(R.id.bt_back);
@@ -64,16 +64,41 @@ public  class NoticeActivity extends AppCompatActivity {
                     "상담 완료 후,취업지원과에서 일괄 포인트 입력");
         }
 
-       else if(code == 2) { //진로캠프
-            new GetDetailData( "http://www.jbnu.ac.kr/kor/?menuID=139&subject=%EC%A7%84%EB%A1%9C%EC%BA%A0%ED%94%84&sfv=subject" ).execute();
-            tv_title.setText( getDetailData.getTitle() );
-            tv_address.setText(getDetailData.getAddress());
-            tv_content.setText("프로그램 개설 시 개별신청(홈페이지 등을 통해 사전공지함)\n" +
-                    "프로그램 종료 후 수료자에 한하여 취업지원과/창업교육센터에서 일괄 포인트 입력"  );
-            tv_date.setText(getDetailData.getDate());
-        }
-
-        else if(code == 3) {
+       else if(code == 2) {
+//                new AsyncTask<Void, Void, Void>() {
+//
+//                    @Override
+//                    protected Void doInBackground(Void... voids) {
+//                        try {
+//                            Document doc = Jsoup.connect( "http://www.jbnu.ac.kr/kor/?menuID=139&subject=%EC%A7%84%EB%A1%9C%EC%BA%A0%ED%94%84&sfv=subject" ).get();
+//                            Elements mElementDataSize = doc.select( "div[class=page_list]" ).select( "table [class=ta_bo]" ).select( "tbody" ).select( "tr" );
+//
+//                            title = mElementDataSize.select( "tr td[class=left]" ).select( "span a" ).attr( "tittle" );
+//                            address = mElementDataSize.select( "tr td[class=left]" ).select( "span a" ).attr( "href" );
+//                            date = mElementDataSize.select( "tr td[class=mview]" ).next().text();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                        return null;
+//                    }
+//
+//                    @Override
+//                    protected void onPostExecute(Void result) {
+//                        super.onPostExecute( result );
+//                        tv_address.setText( address );
+//                        tv_title.setText( title );
+//                        tv_date.setText( date );
+//                    }
+//
+//                }.execute(  );
+            tv_title.setText( "2차 큰사람JUST캠프(진로캠프) 참가자 추가 모집" );
+            tv_address.setText( "   http://www.jbnu.ac.kr/kor/?menuID=139&sfv=subject&subject=%EC%A7%84%EB%A1%9C%EC%BA%A0%ED%94%84&mode=view&no=36590" );
+            tv_date.setText( "2018.05.29" );
+            tv_content.setText( "프로그램 개설 시 개별신청(홈페이지 등을 통해 사전공지함)\n" +
+                    "프로그램 종료 후 수료자에 한하여 취업지원과/창업교육센터에서 일괄 포인트 입력" );
+            }
+            else if(code == 3) {
             tv_title.setText( "추천도서 4권" );
             tv_address.setText( "" );
             tv_date.setText( "" );
@@ -99,7 +124,13 @@ public  class NoticeActivity extends AppCompatActivity {
                     "외부기관:오아시스>학사정보>학생상담>큰사람프로젝트 관리>포인트 신청(*해외봉사/헌혈은 불인정)" );
         }
         else if(code == 6) { //교내 멘토링
-
+            tv_title.setText( "2018학년도 2학기 재학생-재학생 멘토링 프로그램 멘티 신청 안내" );
+            tv_address.setText( "http://www.jbnu.ac.kr/kor/?menuID=139&sfv=subject&subject=%EC%9E%AC%ED%95%99%EC%83%9D-%EC%9E%AC%ED%95%99%EC%83%9D+%EB%A9%98%ED%86%A0%EB%A7%81&mode=view&no=37817" );
+            tv_date.setText( "2018.10.10" );
+            tv_content.setText( "선후배 멘토링프로그램 참여자 모집 시 개별 선정\n" +
+                    "(재학생-재학생,재학생-졸업생 모두인정 가능)\n" +
+                    "활동 종료 후 수료자에 한하여 취업지원과에서 일괄 포인트 입력" +
+                    "" );
         }
 
         else if(code == 7) {
@@ -121,7 +152,7 @@ public  class NoticeActivity extends AppCompatActivity {
         }
 
         else if(belt == R.id.rb_bt_wt) {
-            Intent intent = new Intent(getApplicationContext(), WbeltActivity.class);
+            Intent intent = new Intent(getApplicationContext(), WBeltActivity.class);
             startActivity(intent);
             finish();
         }

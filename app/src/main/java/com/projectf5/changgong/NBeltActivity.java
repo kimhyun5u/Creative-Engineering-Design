@@ -106,7 +106,7 @@ public class NBeltActivity extends AppCompatActivity {
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { // 초기화 버튼
                 editor.clear().commit();
                 editor1.clear().commit();
                 Intent intent = new Intent(getApplicationContext(), InformationActivity.class);
@@ -197,7 +197,7 @@ public class NBeltActivity extends AppCompatActivity {
     }
 
 
-    public void save() {
+    private void save() {
         SharedPreferences check = getSharedPreferences("CHECK", MODE_PRIVATE);
         SharedPreferences.Editor editor1 = check.edit();
         for (int i = 0; i < 8; i++) {
@@ -205,7 +205,7 @@ public class NBeltActivity extends AppCompatActivity {
         }
     }
 
-    public void load() {
+    private void load() {
         SharedPreferences check = getSharedPreferences("CHECK", MODE_PRIVATE);
         for (int i = 0; i < 8; i++) {
             c[i].setChecked(check.getBoolean("check" + i, false));
